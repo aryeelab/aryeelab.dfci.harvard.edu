@@ -1,14 +1,18 @@
-- title: "About"
-  href: "/about/"
+- title: "Research"
+  href: "/research/"
 
-- title: "Blog"
-  href: "/blog/"
+- title: "People"
+  href: "/people/"
 
-
-- title: "Miscellany"
-  href: "/miscellany/"
+- title: "Publications"
+  href: "/publications/"
   subcategories:
-    - subtitle: "Item 1"
-      subhref: "/miscellany/item-1/"
-    - subtitle: "Item 2"
-      subhref: "/miscellany/item-2/"
+    - subtitle: "Pubmed"   
+      subhref: "https://www.ncbi.nlm.nih.gov/pubmed/?term=%22Aryee-MJ%22%5BAuthor%5D"
+
+- title: "Teaching"
+  href: "/teaching/"
+
+- title: "Software"
+  href: "/software/"
+
