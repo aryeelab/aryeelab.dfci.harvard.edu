@@ -4,9 +4,6 @@ title: Software
 permalink: /software/
 ---
 
-
-
-
 -----------------------------------
 **guideseq**
 
