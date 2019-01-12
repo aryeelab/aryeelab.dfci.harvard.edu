@@ -31,13 +31,6 @@ PhD Student, Harvard T.H. Chan School of Public Health
 
 PhD Student, Harvard T.H. Chan School of Public Health
 
-
------------------------------------
-
-**José Malagón López**
-
-Post-Doc, Massachusetts General Hospital
-
 -----------------------------------
 
 **Zack McCaw**
@@ -49,12 +42,16 @@ PhD Student, Harvard T.H. Chan School of Public Health
 PhD Student, Harvard T.H. Chan School of Public Health
 
 
+*Alumni*
+
+-----------------------------------
+
+**José Malagón López**
+
+
 -----------------------------------
 {% include image.html url="/images/AkpeliNordor.jpg" width=200 height=200 %}
 
 **Akpéli Nordor**
-
-Post-Doc, Massachusetts General Hospital
-
 
 
