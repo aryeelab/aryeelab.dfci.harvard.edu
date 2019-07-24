@@ -17,8 +17,7 @@ PhD Student, Harvard T.H. Chan School of Public Health
 
 {% include image.html url="/images/CalebLareau.jpg" width=200 height=200 %}
 **Caleb Lareau**
-Master Student, Harvard T.H. Chan School of Public Health
-**Current:** PhD Student, Harvard Medical School
+Masters Student, Harvard T.H. Chan School of Public Health <br/>**Current:** PhD Student, Harvard Medical School
 
 **Zack McCaw**
 PhD Student, Harvard T.H. Chan School of Public Health
