@@ -7,7 +7,7 @@ permalink: /teaching/
 **Introduction to Statistical Genetics**
 
 Harvard T.H. Chan School of Public Health  
-Fall Semester - Starting October 29, 2018
+Fall Semester - Starting October 26, 2020
 
 Course number: BST227
 
@@ -19,6 +19,3 @@ on to cover approaches for interpreting the role of these variants in disease.
 A background in genetics is not necessary. The basic concepts of human and molecular
 genetics relevant to the course will be covered in class.
 
-### BST227 Fall 2, 2018
-
-[Course Website](http://aryee.mgh.harvard.edu/BST227/)
