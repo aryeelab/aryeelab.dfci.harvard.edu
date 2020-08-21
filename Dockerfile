@@ -2,6 +2,8 @@ FROM httpd:2.4
 
 COPY . /usr/local/apache2/htdocs/
 
+COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
+
 #RUN sed -i \
 #        -e 's/^#\(Include .*httpd-ssl.conf\)/\1/' \
 #        -e 's/^#\(LoadModule .*mod_ssl.so\)/\1/' \
