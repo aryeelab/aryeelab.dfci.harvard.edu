@@ -1,4 +1,4 @@
-# al-folio
+# Aryee lab website
 
 [![build status](https://travis-ci.org/alshedivat/al-folio.svg?branch=master)](https://travis-ci.org/alshedivat/al-folio)
 [![demo](https://img.shields.io/badge/theme-demo-brightgreen.svg)](https://alshedivat.github.io/al-folio/)
@@ -7,16 +7,11 @@
 [![GitHub stars](https://img.shields.io/github/stars/alshedivat/al-folio)](https://github.com/alshedivat/al-folio)
 [![GitHub forks](https://img.shields.io/github/forks/alshedivat/al-folio)](https://github.com/alshedivat/al-folio/fork)
 
-A simple, clean, and responsive [Jekyll](https://jekyllrb.com/) theme for academics.
-If you like the theme, give it a star!
+## Quick start
+The lab website is built using [Jekyll](https://jekyllrb.com/) and the [al-folio](https://alshedivat.github.io/al-folio/) theme. 
+Much of the documentation below is copied or adapted from https://alshedivat.github.io/al-folio.
 
-[![Preview](assets/img/al-folio-preview.png)](https://alshedivat.github.io/al-folio/)
-
-
-## Getting started
-
-For more about how to use Jekyll, check out [this tutorial](https://www.taniarascia.com/make-a-static-website-with-jekyll/).
-Why Jekyll? Read this [blog post](https://karpathy.github.io/2014/07/01/switching-to-jekyll/)!
+The source is in the `source` branch (make edits here!) and the built site is in the `master` branch. (See 'Installation' below).
 
 
 ### Installation
@@ -30,13 +25,26 @@ $ bundle install
 $ bundle exec jekyll serve
 ```
 
-Now, feel free to customize the theme however you like (don't forget to change the name!).
-After you are done, **commit** your final changes.
-Now, you can deploy your website to [GitHub Pages](https://pages.github.com/) by running the deploy script:
+In order to push/pull images from the container registry you must first authenticate with Google:
+
+```
+gcloud auth login
+```
+
+You need to run a one-time setup to configure docker to use Google authentication:
+```
+gcloud auth configure-docker
+```
+
+
+### Build the site
+
+Make edits to the `source` branch. [Commit?]. Then build the site to the master branch:
 
 ```bash
-$ ./bin/deploy [--user]
+$ ./bin/deploy --user
 ```
+
 By default, the script uses the `master` branch for the source code and deploys the webpage to `gh-pages`.
 The optional flag `--user` tells it to deploy to `master` and use `source` for the source code instead.
 Using `master` for deployment is a convention for [user and organization pages](https://help.github.com/articles/user-organization-and-project-pages/).
@@ -48,10 +56,62 @@ url:  # should be empty
 baseurl:  # should be empty
 ```
 
+### Build the Apache docker container that will host the site:
+
+```
+docker build -t gcr.io/aryeelab/www-aryee .
+```
+
+Test the site:
+
+```
+docker run --rm -it -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
+```
+
+Go to http://localhost to see the site. If it looks OK push the image to the container registry:
+
+```
+docker push gcr.io/aryeelab/www-aryee .
+```
+
+(Make sure you have authenticated first with `gcloud auth configure-docker`)
+
+You can verify that your image is in the registry with:
+```
+gcloud container images list-tags gcr.io/aryeelab/www-aryee
+```
+
+
+### Host the site
+
+SSH into `docker-aryee.partners.org` (previously called `docker-aryee.dipr.partners.org`).
+
+List the running containers:
+```
+docker ps
+```
+
+Stop the existing website container:
+```
+docker stop [CONTAINER ID]
+```
+
+Pull the new image and start a container:
+```
+gcloud auth configure-docker # If necessary (for pull)
+docker pull gcr.io/aryeelab/www-aryee
+docker run --rm -dit -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
+
+```
+
+
+
+
+
 
 ### Upgrading from a previous version
 
-If you installed **al-folio** as described above, you can upgrade to the latest version as follows:
+If you installed the site as described above, you can upgrade the **al-folio** theme to the latest version as follows:
 
 ```bash
 # Assuming the current directory is <your-repo-name>
