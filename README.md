@@ -24,12 +24,13 @@ $ bundle exec jekyll serve
 
 In order to push/pull images from the container registry you must first authenticate with Google:
 
-```
+```bash
 gcloud auth login
 ```
 
 You need to run a one-time setup to configure docker to use Google authentication:
-```
+
+```bash
 gcloud auth configure-docker
 ```
 
