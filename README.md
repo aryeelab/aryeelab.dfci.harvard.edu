@@ -11,16 +11,13 @@
 The lab website is built using [Jekyll](https://jekyllrb.com/) and the [al-folio](https://alshedivat.github.io/al-folio/) theme. 
 Much of the documentation below is copied or adapted from https://alshedivat.github.io/al-folio.
 
-The source is in the `source` branch (make edits here!) and the built site is in the `master` branch. (See 'Installation' below).
-
-
 ### Installation
 
 Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) installed on your system (*hint: for ease of managing ruby gems, consider using [rbenv](https://github.com/rbenv/rbenv)*), first [fork](https://guides.github.com/activities/forking/) the theme from `github.com:alshedivat/al-folio` to `github.com:<your-username>/<your-repo-name>` and do the following:
 
 ```bash
-$ git clone git@github.com:<your-username>/<your-repo-name>.git
-$ cd <your-repo-name>
+$ git clone git@github.com:aryeelab/aryeelab.github.io.git
+$ cd aryeelab.github.io
 $ bundle install
 $ bundle exec jekyll serve
 ```
@@ -48,25 +45,28 @@ The site will be built in the _site directory.
 
 ### Build the Apache docker container that will host the site:
 
-```
+```bash
 docker build -t gcr.io/aryeelab/www-aryee .
 ```
 
+This builds an Apache docker container with the contents of _site placed into the Apache HTML dir (`/usr/local/apache2/htdocs/`).
+
 Test the site:
 
-```
+```bash
 docker run --rm -it -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
 ```
 
 Go to http://localhost to see the site. If it looks OK push the image to the container registry:
 
-```
+```bash
 docker push gcr.io/aryeelab/www-aryee
 ```
 
 (Make sure you have authenticated first with `gcloud auth configure-docker`)
 
 You can verify that your image is in the registry with:
+
 ```
 gcloud container images list-tags gcr.io/aryeelab/www-aryee
 ```
@@ -77,17 +77,20 @@ gcloud container images list-tags gcr.io/aryeelab/www-aryee
 SSH into `docker-aryee.partners.org` (previously called `docker-aryee.dipr.partners.org`).
 
 List the running containers:
-```
+
+```bash
 docker ps
 ```
 
 Stop the existing website container:
-```
+
+```bash
 docker stop [CONTAINER ID]
 ```
 
 Pull the new image and start a container:
-```
+
+```bash
 gcloud auth configure-docker # If necessary (for pull)
 docker pull gcr.io/aryeelab/www-aryee
 docker run --rm -dit -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
