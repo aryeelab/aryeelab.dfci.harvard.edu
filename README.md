@@ -39,22 +39,12 @@ gcloud auth configure-docker
 
 ### Build the site
 
-Make edits to the `source` branch. [Commit?]. Then build the site to the master branch:
-
 ```bash
-$ ./bin/deploy --user
+bundle exec jekyll build
 ```
 
-By default, the script uses the `master` branch for the source code and deploys the webpage to `gh-pages`.
-The optional flag `--user` tells it to deploy to `master` and use `source` for the source code instead.
-Using `master` for deployment is a convention for [user and organization pages](https://help.github.com/articles/user-organization-and-project-pages/).
+The site will be built in the _site directory.
 
-**Note:** when deploying your user or organization page, make sure the `_config.yml` has `url` and `baseurl` fields as follows.
-
-```
-url:  # should be empty
-baseurl:  # should be empty
-```
 
 ### Build the Apache docker container that will host the site:
 
@@ -71,7 +61,7 @@ docker run --rm -it -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
 Go to http://localhost to see the site. If it looks OK push the image to the container registry:
 
 ```
-docker push gcr.io/aryeelab/www-aryee .
+docker push gcr.io/aryeelab/www-aryee
 ```
 
 (Make sure you have authenticated first with `gcloud auth configure-docker`)
@@ -271,22 +261,6 @@ ML Retrospectives (<a href="https://ml-retrospectives.github.io/neurips2019/" ta
 </td>
 </tr>
 </table>
-
-
-## FAQ
-
-Here are some frequently asked questions.
-If you have a different question, please ask on [gitter](https://gitter.im/alshedivat/al-folio).
-
-1. **Q:** When I preview my website locally everything looks great, but when I deploy it on GitHub bibliography Liquid tags are not recognized.
-   How do I fix this? <br>
-   **A:** GitHub Pages rendering does not support certain Jekyll plugins, and `jekyll-scholar` that we use to render bibliography is one of them. Please make sure you deploy your website to GitHub using `bin/deploy` script that circumvents the issue.
-
-2. **Q:** When I deploy my fork of al-folio, it says `Deployed successfully!`
-   But when I open `<my-github-username>.github.io`, I get `Page not found (404)` error.
-   How do I fix this? <br>
-   **A:** For personal webpages, please run `bin/deploy --user`.
-   (See also relevant past issues: [#5](https://github.com/alshedivat/al-folio/issues/5), [#49](https://github.com/alshedivat/al-folio/issues/49), [#86](https://github.com/alshedivat/al-folio/issues/86).)
 
 
 ## License
