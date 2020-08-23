@@ -94,7 +94,7 @@ Pull the new image and start a container:
 ```bash
 gcloud auth configure-docker # If necessary (for pull)
 docker pull gcr.io/aryeelab/www-aryee
-docker run --rm -dit -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
+docker run --rm -dit -e PORT=80 -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
 
 ```
 
