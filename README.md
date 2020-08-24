@@ -94,11 +94,11 @@ Pull the new image and start a container:
 ```bash
 gcloud auth configure-docker # If necessary (for pull)
 docker pull gcr.io/aryeelab/www-aryee
-docker run --rm -dit -e PORT=80 -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
+docker run --rm -dit -e PORT=80 -p 80:80 -p443:443 -v /ssl:/ssl gcr.io/aryeelab/www-aryee
 
 ```
 
-
+Note that you can run the above `docker run` command without the `-v /ssl:/ssl` option. In this case it will use a self-signed certificate instead of the ones stored in /ssl.
 
 
 
