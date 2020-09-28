@@ -83,6 +83,12 @@ List the running containers:
 docker ps
 ```
 
+In case Docker is not running, you can start it like this:
+
+```bash
+systemctl start docker
+```
+
 Stop the existing website container:
 
 ```bash
