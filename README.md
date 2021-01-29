@@ -55,7 +55,7 @@ This builds an Apache docker container with the contents of _site placed into th
 Test the site:
 
 ```bash
-docker run --rm -it -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
+docker run --rm -it -p 80:80 -p443:443 --env PORT=80 gcr.io/aryeelab/www-aryee
 ```
 
 Go to http://localhost to see the site. If it looks OK push the image to the container registry:
