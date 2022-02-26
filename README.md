@@ -55,7 +55,7 @@ This builds an Apache docker container with the contents of _site placed into th
 Test the site:
 
 ```bash
-docker run --rm -it -p 80:80 -p443:443 --env PORT=80 gcr.io/aryeelab/www-aryee
+docker run --rm -it -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
 ```
 
 Go to http://localhost to see the site. If it looks OK push the image to the container registry:
@@ -100,7 +100,7 @@ Pull the new image and start a container:
 ```bash
 gcloud auth configure-docker # If necessary (for pull)
 docker pull gcr.io/aryeelab/www-aryee
-docker run --restart=always -dit -e PORT=80 -p 80:80 -p443:443 -v /ssl:/ssl gcr.io/aryeelab/www-aryee
+docker run --restart=always --name www-aryee -dit -p 80:80 -p443:443 -v /ssl:/ssl gcr.io/aryeelab/www-aryee
 
 ```
 
