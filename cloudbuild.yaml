@@ -1,8 +1,6 @@
 steps:
-
 -name: 'jekyll/minimal'
  args: ['jekyll', 'build', '--destination', '/workspace/_site']
-
 - name: 'gcr.io/kaniko-project/executor:latest'
   args:
   - --destination=gcr.io/aryeelab/www-aryee
@@ -10,5 +8,4 @@ steps:
   - --build-arg=VERSION=$SHORT_SHA
   - --cache=true
   - --cache-ttl=720h
-
 timeout: 7200s
