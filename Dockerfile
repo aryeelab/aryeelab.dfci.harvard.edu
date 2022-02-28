@@ -1,5 +1,9 @@
 FROM nginx:1.21.6
 
+# VERSION is set to the Git SHORT_SHA commit id in cloudbuild.yaml
+# (https://cloud.google.com/build/docs/configuring-builds/substitute-variable-values)
+ARG VERSION=__specify_as_cloud_build_arg__
+
 COPY nginx.conf  /etc/nginx/
 COPY default.conf /etc/nginx/conf.d/
 
@@ -13,3 +17,5 @@ RUN mkdir /ssl && \
         -keyout /ssl/aryeelab_dfci_harvard_edu.key \
         -out /ssl/aryeelab_dfci_harvard_edu.cer
 
+# Put the git commit id (specified as a GCP cloud build substituion) in the footer as a version number
+RUN sed "s/__VERSION__/$VERSION/" _config.yml 
