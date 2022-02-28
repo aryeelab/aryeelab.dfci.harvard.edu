@@ -18,4 +18,4 @@ RUN mkdir /ssl && \
         -out /ssl/aryeelab_dfci_harvard_edu.cer
 
 # Put the git commit id (specified as a GCP cloud build substituion) in the footer as a version number
-RUN sed "s/__VERSION__/$VERSION/" _config.yml 
+RUN sed -i "s/__VERSION__/$VERSION/" /usr/share/nginx/html/_config.yml 
