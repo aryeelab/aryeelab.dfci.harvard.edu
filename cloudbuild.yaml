@@ -1,5 +1,5 @@
 steps:
-- name: 'jekyll/minimal'
+- name: 'jekyll/jekyll'
   args: ['jekyll', 'build', '--destination', '/workspace/_site']
 - name: 'gcr.io/kaniko-project/executor:latest'
   args:
