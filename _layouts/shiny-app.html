@@ -1,0 +1,14 @@
+<head>
+    {% include head.html %}
+    {% include analytics.html %}
+</head>
+
+{% include header.html %}
+
+<body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
+    <div class="shiny-container">
+      {{ content }}
+    </div>
+</body>
+
+{% include footer.html %}
