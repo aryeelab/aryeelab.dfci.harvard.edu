@@ -50,8 +50,7 @@ The site will be built in the _site directory.
 ### Build the Apache docker container that will host the site:
 
 ```bash
-#docker build -t gcr.io/aryeelab/www-aryee .
-docker build -t www-aryee .
+docker build -t gcr.io/aryeelab/www-aryee .
 ```
 
 This builds an Apache docker container with the contents of _site placed into the Apache HTML dir (`/usr/local/apache2/htdocs/`).
@@ -59,8 +58,7 @@ This builds an Apache docker container with the contents of _site placed into th
 Test the site:
 
 ```bash
-#docker run --rm -it -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
-docker run --rm -it -p 80:80 -p443:443 www-aryee
+docker run --rm -it -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
 ```
 
 Go to http://localhost to see the site. If it looks OK push the image to the container registry:
