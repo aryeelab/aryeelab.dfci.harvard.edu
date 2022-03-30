@@ -67,6 +67,14 @@ Go to http://localhost to see the site. If it looks OK push the image to the con
 docker push gcr.io/aryeelab/www-aryee
 ```
 
+NB: If you're working locally on an non amd64 machine (e.g. an Apple Silicon Mac) you'll need to build an amd64 image first:
+
+```bash
+docker buildx build --platform linux/amd64 -t gcr.io/aryeelab/www-aryee .
+docker push gcr.io/aryeelab/www-aryee
+```
+
+
 (Make sure you have authenticated first with `gcloud auth configure-docker`)
 
 You can verify that your image is in the registry with:
