@@ -16,7 +16,7 @@ Much of the documentation below is copied or adapted from https://alshedivat.git
 Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](https://bundler.io/) installed on your system (*hint: for ease of managing ruby gems, consider using [rbenv](https://github.com/rbenv/rbenv)*), first [fork](https://guides.github.com/activities/forking/) the theme from `github.com:alshedivat/al-folio` to `github.com:<your-username>/<your-repo-name>` and do the following:
 
 ```bash
-$ git clone git@github.com:aryeelab/aryee.mgh.harvard.edu.git
+$ git clone git@github.com:aryeelab/aryeelab.dfci.harvard.edu.git
 $ cd aryee.mgh.harvard.edu
 $ bundle install
 $ bundle exec jekyll serve
