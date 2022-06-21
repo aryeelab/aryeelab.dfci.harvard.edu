@@ -1,11 +1,13 @@
 ---
-layout: page
+layout: page-no-title
 permalink: /publications/
-title: selected publications
+title: publications
 description: For a full list see <a href="https://www.ncbi.nlm.nih.gov/pubmed/?term=%22Aryee-MJ%22%5BAuthor%5D" target="_blank">PubMed</a>
 years: [2020, 2019, 2018, 2017, 2016, 2015, 2014] 
 nav: true
 ---
+
+<h1>selected publications</h1>
 
 <div class="publications">
 
