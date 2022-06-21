@@ -61,15 +61,17 @@ Test the site:
 docker run --rm -it -p 80:80 -p443:443 gcr.io/aryeelab/www-aryee
 ```
 
-Go to http://localhost to see the site. If it looks OK push the image to the container registry:
+Go to http://localhost to see the site. If it looks OK build and push the image to the container registry:
 
 ```bash
+bundle exec jekyll build
 docker push gcr.io/aryeelab/www-aryee
 ```
 
 NB: If you're working locally on an non amd64 machine (e.g. an Apple Silicon Mac) you'll need to build an amd64 image first:
 
 ```bash
+bundle exec jekyll build
 docker buildx build --platform linux/amd64 -t gcr.io/aryeelab/www-aryee .
 docker push gcr.io/aryeelab/www-aryee
 ```
@@ -110,11 +112,10 @@ Pull the new image and start a container:
 
 ```bash
 gcloud auth configure-docker # If necessary (for pull)
-docker pull gcr.io/aryeelab/www-aryee
+docker pull gcr.io/aryeelab/www-aryee && \
 docker stop www-aryee && \
   docker rm www-aryee && \
   docker run --restart=always --name www-aryee -dit -p 80:80 -p443:443 -v /ssl:/ssl gcr.io/aryeelab/www-aryee
-
 ```
 
 Note that you can run the above `docker run` command without the `-v /ssl:/ssl` option. In this case it will use a self-signed certificate instead of the ones stored in /ssl.
