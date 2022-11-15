@@ -17,7 +17,7 @@ Assuming you have [Ruby](https://www.ruby-lang.org/en/downloads/) and [Bundler](
 
 ```bash
 $ git clone git@github.com:aryeelab/aryeelab.dfci.harvard.edu.git
-$ cd aryee.mgh.harvard.edu
+$ cd aryeelab.dfci.harvard.edu
 $ bundle install
 $ bundle exec jekyll serve
 ```
