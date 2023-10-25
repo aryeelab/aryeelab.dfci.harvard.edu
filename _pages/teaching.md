@@ -9,11 +9,11 @@ nav: true
 **Introduction to Statistical Genetics**
 
 Harvard T.H. Chan School of Public Health  
-Fall Semester - Starting October 2022
+Fall Semester - Starting October 2023
 
 Course number: BST227
 
-This course will provide an introduction to statistical methods for genetic studies.
+This course provides an introduction to statistical methods for genetic studies.
 The emphasis of this course is on understanding basic concepts and methods and how
 they are applied in the analysis of population genetic data. The course starts out
 with an overview of methods for identifying disease-associated variants, and then goes
