@@ -227,12 +227,20 @@ footer.sticky-bottom {
   }
 }
 
+// multi-scale-bar (right triangle)
+.multi-scale-bar {
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid #143355; /* Use your desired triangle color */
+  border-right: 970px solid transparent;
+  margin-bottom: 50px;
+}
+
 
 // Projects
-
 .projects {
-  .grid-item {
-    width: 250px;
+  .grid-item { 
+    width: 275px;
     margin-bottom: 10px;
     a {
       color: black;
