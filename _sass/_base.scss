@@ -350,3 +350,11 @@ footer.sticky-bottom {
     }
   }
 }
+
+
+// Misc
+.center-row {
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+  /* align-items: center; */ /* Uncomment this if you also want to vertically center */
+}
