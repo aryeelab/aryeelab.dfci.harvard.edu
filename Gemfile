@@ -1,4 +1,10 @@
 source 'https://rubygems.org'
+
+# Required for Ruby 3.4+
+gem 'csv'
+gem 'base64'
+gem 'logger'
+
 group :jekyll_plugins do
     #gem 'github-pages'
     gem "jekyll", "~> 4.2.0"
@@ -7,5 +13,5 @@ group :jekyll_plugins do
     gem 'jekyll-scholar'
     gem 'jemoji'
     gem 'unicode_utils'
-    gem 'webrick'    
+    gem 'webrick'
 end
