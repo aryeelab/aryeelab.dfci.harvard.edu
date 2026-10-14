@@ -46,8 +46,62 @@ bundle exec jekyll serve
 
 The site will be built in the _site directory.
 
+### Deploy to Firebase Hosting
 
-### Build the Apache docker container that will host the site:
+Firebase Hosting is the preferred hosting target for this static Jekyll site.
+The repository includes:
+
+- `.firebaserc` — sets the default Firebase/GCP project to `aryeelab`.
+- `firebase.json` — serves the generated `_site` directory, preserves Jekyll's
+  directory-style permalinks with trailing slashes, and enables clean URLs for
+  generated `.html` pages.
+
+Install or invoke the Firebase CLI:
+
+```bash
+npm install -g firebase-tools
+# or use: npx firebase-tools <command>
+```
+
+One-time project setup, if Firebase Hosting has not already been initialized in
+the `aryeelab` project:
+
+```bash
+firebase login
+firebase projects:addfirebase aryeelab
+firebase hosting:sites:create aryeelab --project aryeelab
+```
+
+Build and deploy:
+
+```bash
+bundle install
+bundle exec jekyll build
+firebase deploy --only hosting --project aryeelab
+```
+
+The current Firebase Hosting URL is:
+
+```text
+https://aryeelab.web.app
+```
+
+The custom domain `aryeelab.dfci.harvard.edu` is configured in Firebase Hosting
+and DNS points to Firebase (`aryeelab.dfci.harvard.edu CNAME aryeelab.web.app`),
+so a deploy updates https://aryeelab.dfci.harvard.edu as well. The previous record
+was `CNAME erishaproxy.partners.org`.
+
+Firebase provisions and renews the HTTPS certificate automatically.
+
+
+### Legacy Docker hosting
+
+The site was previously hosted as an nginx Docker container on
+`docker-aryee.partners.org`. That VM is being decommissioned; prefer Firebase
+Hosting for new deployments. The legacy Docker instructions are retained below
+for reference.
+
+### Build the nginx docker container that will host the site:
 
 ```bash
 docker build -t gcr.io/aryeelab/www-aryee .

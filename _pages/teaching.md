@@ -4,12 +4,13 @@ permalink: /teaching/
 title: teaching
 description: 
 nav: true
+nav_order: 2
 ---
 
 **Introduction to Statistical Genetics**
 
 Harvard T.H. Chan School of Public Health  
-Fall Semester - Starting October 2025
+Fall Semester - Starting October 2026
 
 Course number: BST227
 
