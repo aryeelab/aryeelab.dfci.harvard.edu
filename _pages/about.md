@@ -14,7 +14,7 @@ news: false
 social: true
 ---
 
-We develop and apply computational methods to learn how spatial organization in tissues is related to normal and disease cell states. We study organization at multiple scales of organization, ranging from the tissue level architecture that governs cell-cell interactions, to the packaging of euchromatin and heterochromatin in the nucleus, down to the individual DNA loops that connect genes to their regulatory elements. 
+We develop and apply computational methods to learn how spatial organization in tissues is related to normal and disease cell states. We study 3D structure at multiple scales of organization, ranging from the tissue level architecture that governs cell-cell interactions, to the packaging of euchromatin and heterochromatin in the nucleus, down to the individual DNA loops that connect genes to their regulatory elements. 
 
 <div class="d-flex justify-content-center">
   <h5>Gene expression is regulated by spatial organization at multiple scales:</h5>
